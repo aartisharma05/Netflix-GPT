@@ -1,6 +1,6 @@
 # NETFLIX-GPT
 
 
-Auhtentication and Authorization
-File Handling
+Auhtentication and Authorization,
+File Handling,
 GPT APIs
