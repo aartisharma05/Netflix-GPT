@@ -12,10 +12,10 @@ const Login = () => {
       </div>
 
       <form className="absolute w-1/4 bg-black mx-auto right-0 left-0 p-12 my-36">
-        <h1 className="font-bold text-white text-2xl">Sign In</h1>
-        <input type="text" placeholder="Email Address" className="py-2 m-2 w-full" />
-        <input type="password" placeholder="Password" className="py-2 m-2 w-full" />
-        <button className="p-4 m-4 bg-red-700 text-white rounded-md w-full">
+        <h1 className="font-bold text-white text-2xl py-4">Sign In</h1>
+        <input type="text" placeholder="Email Address" className="p-2 my-2 w-full bg-gray-700 " />
+        <input type="password" placeholder="Password" className="p-2 my-2 w-full bg-gray-700 " />
+        <button className="p-4 my-4 bg-red-700 text-white rounded-lg w-full">
           Sing In
         </button>
       </form>
