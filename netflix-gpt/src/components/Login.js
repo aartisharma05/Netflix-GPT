@@ -1,8 +1,11 @@
 
+import { useState } from "react";
 import Header from "./Header";
 const Login = () => {
+   const [isSignInForm, setIsSignInForm] = useState(true);
   const toggleSignInForm = ()=>{
-    
+     
+    setIsSignInForm(!isSignInForm);
   }
   return (
     <div>
@@ -15,7 +18,9 @@ const Login = () => {
       </div>
 
       <form className="absolute w-1/4 bg-black mx-auto right-0 left-0 p-12 my-36 bg-opacity-80">
-        <h1 className="font-bold text-white text-2xl py-4">Sign In</h1>
+        <h1 className="font-bold text-white text-2xl py-4">
+          {isSignInForm ? "Sign In": "Sign Up"}
+        </h1>
         <input type="text" placeholder="Email Address" className="p-2 my-2 w-full bg-gray-700 " />
         <input type="password" placeholder="Password" className="p-2 my-2 w-full bg-gray-700 " />
         <button className="p-4 my-4 bg-red-700 text-white rounded-lg w-full">
