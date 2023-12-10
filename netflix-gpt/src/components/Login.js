@@ -9,24 +9,23 @@ import {
 } from "firebase/auth";
 import {auth} from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
+
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const name = useRef(null);//name validation
   const email = useRef(null);
   const password = useRef(null);
-  const toggleSignInForm = () => {
-    setIsSignInForm(!isSignInForm);
-  };
+
+
 
   const handleButtonClick = ()=>{
-    //validate form data
-  // checkValidData(email, password)
-  console.log(email.current.value);
-  console.log(password.current.value);
 
   const message = checkValidData(email.current.value, password.current.value);
   setErrorMessage(message);
@@ -40,7 +39,7 @@ const Login = () => {
 
     createUserWithEmailAndPassword(
       auth,
-      email.current.value,
+      email.current.value,  
       password.current.value
     )
       .then((userCredential) => {
@@ -52,8 +51,17 @@ const Login = () => {
             "https://avatars.githubusercontent.com/u/120464099?s=400&u=cd06e215c8bd4f6c3144f36a08a5baf3e66cfadd&v=4",
         })
           .then(() => {
-            // Profile updated!
-            // ...
+           
+             const { uid, email, displayName, photoURL } = auth.currentUser;
+             dispatch(
+               addUser({
+                 uid: uid,
+                 email: email,
+                 displayName: displayName,
+                 photoURL: photoURL,
+               })
+             );
+
             navigate("/browse");
           })
           .catch((error) => {
@@ -97,10 +105,14 @@ const Login = () => {
       });
 
    }
-
+ 
 
 
   }
+    
+  const toggleSignInForm = () => {
+    setIsSignInForm(!isSignInForm);
+  };
   return (
     <div>
       <Header />
@@ -108,7 +120,7 @@ const Login = () => {
         <img
           src="https://assets.nflxext.com/ffe/siteui/vlv3/d1532433-07b1-4e39-a920-0f08b81a489e/ee951142-2027-4179-ae6c-71f83929c30f/US-en-20231120-popsignuptwoweeks-perspective_alpha_website_small.jpg"
           alt="logo"
-          className="min-h-screen"
+          className="min-h-screen w-full"
         />
       </div>
 
@@ -121,6 +133,7 @@ const Login = () => {
         </h1>
         {!isSignInForm && (
           <input
+            ref={name}
             type="text"
             placeholder="Full Name"
             className="p-2 my-2 w-full bg-gray-700 rounded-md "
