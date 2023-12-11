@@ -10,9 +10,9 @@ const Browse = () => {
   return (
     <div>
       <Header />
-      {
+      
         
-    /*
+    {/* /*
 
      MainContainer
       - VideoBackground
@@ -22,8 +22,8 @@ const Browse = () => {
       - MovieList *n
        - cards * n
 
-    */
-      }
+    */ }
+      
       <MainContainer/>
       <SecondaryContainer/>
     </div>
