@@ -35,7 +35,8 @@
 - Made the Browse Page amazing with Tailwind CSS
 - usePopularMovies Custom Hook
 - useTrendingMovies && useUpcomingMovies Custom hook
- 
+- GPT Search Feature
+
 
 
 
