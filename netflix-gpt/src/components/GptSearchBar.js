@@ -54,15 +54,15 @@ const searchMovieTMDB = async(movie)=>{
      dispatch(addGptMovieResult({movieNames: gptMovies, movieResults: tmdbResults}));
   }
   return (
-    <div className="pt-[10%] flex justify-center ">
-      <form className="w-1/2 bg-black grid grid-cols-12" onSubmit={(e)=>e.preventDefault()}>
+    <div className=" md:pt-[15%] px-1 flex justify-center ">
+      <form className=" w-full lg:w-1/2 bg-black grid grid-cols-12 rounded-lg" onSubmit={(e)=>e.preventDefault()}>
         <input
         ref={searchText}
           type="text"
-          className="p-4 m-4 col-span-9"
+          className="p-4 m-4 text-xs sm:text-lg col-span-9 rounded-lg"
           placeholder={lang[langKey].gptSearchPlaceholder}
         />
-        <button className="col-span-3 py-2 px-4 m-4 bg-red-700 text-white rounded-lg"
+        <button className="col-span-3 p-1 my-4 mx-2 sm:py-2 sm:px-4 sm:m-4 bg-red-700 text-white rounded-lg"
         onClick={handleGptSearchClick} >
           {lang[langKey].search}
         </button>
