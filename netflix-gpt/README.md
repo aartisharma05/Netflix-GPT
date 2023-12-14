@@ -37,7 +37,7 @@
 - useTrendingMovies && useUpcomingMovies Custom hook
 - GPT Search Page
 - GPT Search Bar
-- (Bonus)Multi-language Feature in our App
+- (Bonus) Multi-language Feature in our App
 
 
 
