@@ -1,4 +1,4 @@
-# NETFLIX-GPT
+# Cine-Insight
 
 
 Auhtentication and Authorization,
